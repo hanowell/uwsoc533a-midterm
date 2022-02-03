@@ -1,0 +1,374 @@
+---
+title: "Midterm Exam"
+author: '[Your first name] [Your last name]'
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    number_sections: true
+    toc: true
+    toc_float: true
+    toc_depth: 4
+---
+
+# "Age-specific" lung cancer patient death rates and probabilities
+
+## Data collection {.unnumbered}
+
+```{r}
+lung_surv <- readRDS("data/lung_surv.rds")
+```
+
+## About the data {.unnumbered}
+
+**You've just loaded data on lung cancer patient survival, which I modified from the `survival::lung` data set. Each observation represents an individual person who was observed until either the study was concluded, or they died. The data has the following structure:**
+
+1. **`person_months`: the exact time in months that a person was observed**
+1. **`status %in% c("censored", "dead")`: indicates whether the observation of this person concluded in their death, or with censoring (i.e., the end of the study)**
+1. **`sex`: the sex of the person observed**
+
+##  What do I mean by "age-specific" in this context?
+
+**What do the "ages" in the age-specific rates you'll calculate in fact represent?**
+
+**Response below:**
+
+
+
+**Points available:  1 for clearly-written, factually correct response**
+
+## What are we assuming by calculating "age-specific" probabilities?
+
+**We're making a crucial assumption about this lifeline data by calculating probabilities. What is it? Don't just name the assumption; describe what the assumption means for this specific data set.**
+
+**Response below:**
+
+
+
+**Points available: 1 for clearly-written, factually correct response**
+
+## Calculate age- and sex-specific mortality rates
+
+**Calculate all the age- and sex-specific mortality rates for five-month "age" groups, with 25 months or more as the open-ended interval. Output the results in a table below with the following structure, and with mortality rates rounded to four decimal places:**
+
+1. **`x`: exact "age" in months at the start of the "age" interval**
+1. **`mx_female`: "age-specific" mortality rate for females in the "age" group**
+1. **`mx_male`: "age-specific" mortality rate for males in the "age" group**
+
+```{r}
+
+```
+
+**Points available: 1**
+
+* **0.5 points for getting steps mostly right**
+* **0.5 points for numerically accurate results**
+
+## Calculate age- and sex-specific probabilities of death
+
+**Calculate all the "age-" and sex-specific" probabilities of death for five-month "age" groups, with 25 months or more as the open-ended interval. Output the results in a table below with the following structure, and with probabilities rounded to four decimal places:**
+
+1. **`x`: exact "age" in months at the start of the "age" interval**
+1. **`qx_female`: "age-specific" probability of death for females in the "age" group**
+1. **`qx_male`: "age-specific" probability of death for males in the "age" group**
+
+```{r}
+
+```
+
+**Points available: 1, including:**
+
+* **0.5 for getting steps mostly right**
+* **0.5 for numerically accurate results**
+
+## Interpret the findings
+
+**In a brief paragraph below, summarize the findings.**
+
+**Response below:**
+
+
+
+**Points available: 1, including:**
+
+* **0.5 for well-reasoned response in light of results you got**
+* **0.5 for factually accurate response based on correct figures**
+
+**Total points available for this question set: 5**
+
+# Crude death rate decomposition during war-time
+
+## Data collection {.unnumbered}
+
+```{r}
+fratnp_ww_asmr <- readRDS("data/fratnp_ww_asmr.rds")
+```
+
+## About the data {.unnumbered}
+
+**You've just loaded age-specific mortality rates (ASMRs) by gender and 5-year age groups for France during World War I (1914-1918) and World War II (1939-1945), respectively. The data has the following structure:**
+
+1. **`World_War %in% c("WWI", "WWII")`: which world war period the ASMR schedule applies to**
+1. **`Sex %in% c("Female", "Male")`: which sex the ASMR schedule applies to**
+1. **`Age`: the exact age at the beginning of the age interval to which the ASMR applies**
+1. **`Deaths_5x1`: the death count for the `World_War`, `Sex`, and `Age` in the same row**
+1. **`Exposures_5x1`: the period person-years for the `World_War`, `Sex`, and `Age` in the same row**
+1. **`Mx_5x1`: the AMSR for the `World_War`, `Sex`, and `Age` in the same row**
+
+## Calculate the crude death rate (CDR) in two different ways
+
+**Demonstrate two ways to use this data to calculate the CDR by period and sex. Do so using both equations (written in $\LaTeX$; you need demonstrate how it would be done for one period-sex pair) and code (code should do the calculations for all period-sex pairs):**
+
+### Equations
+
+#### Method 1
+
+**Equations below:**
+
+
+
+**Points available: 0.5 for symbolically accurate equation**
+
+#### Method 2
+
+**Equations below:**
+
+
+
+**Points available: 0.5 for symbolically accurate equation**
+
+### Code
+
+**Present results in a table below with the following structure:**
+
+1. **`World_War`: defined as before**
+1. **`Sex`: defined as before**
+1. **`cdr_method1`: CDR calculated using your method 1 above**
+1. **`cdr_method2`: CDR calculated using your method 2 above**
+
+```{r}
+
+```
+
+**Points available: 1, including:**
+
+* **0.5 for getting steps mostly right**
+* **0.5 for numerically accurate results**
+
+## Decompose the difference in CDR between males and females during WWI
+
+### Age-specific contributions to the CDR difference between males and females during WWI
+
+**Calculate the age-specific contributions to the CDR differences between males and females during WWI. Output the result in a table below with the following structure:**
+
+1. **`Age`: same definition as in the original data set**
+1. **`Mx_contrib`: age-specific contribution of mortality to CDR difference**
+1. **`Ci_contrib`: age-specific contribution of age-structure to CDR difference**
+
+```{r}
+
+```
+
+**Points available: 0.5, including:**
+
+* **0.25 for getting steps mostly right**
+* **0.25 for numerically accurate results**
+
+### Mortality rate shedule and age composition contributions to the CDR difference between males and females during WWI
+
+**Calculate the mortality rate schedule and age composition contributions to the CDR difference between males and females during WWI. Output the result in a table below with similar columns names as the previous section. Which column names your table will contain I'll leave you to figure out based on your knowledge of how to solve this problem.**
+
+```{r}
+
+```
+
+**Points available: 0.5, including:**
+
+* **0.25 for getting steps mostly right**
+* **0.25 for numerically accurate results**
+
+### Interpret the WWI results
+
+**In a paragraph below, interpret your findings about the difference between male and female CDR during WWI in France, both in terms of its age-specific and total components. You may choose to augment your answer with additional graphs and tables, if you like. But it's not necessary.**
+
+**Response below:**
+
+
+
+**Points available: 0.5, including:**
+
+* **0.25 for well-reasoned response in light of results you got**
+* **0.25 for factually accurate response based on correct figures**
+
+## Decompose the difference in crude death rate (CDR) between males and females during WWII
+
+### Age-specific contributions to the CDR difference between males and females during WWII
+
+**Calculate the age-specific contributions to the CDR differences between males and females during WWII. Output the result in a table below with the following structure:**
+
+1. **`Age`: same definition as in the original data set**
+1. **`Mx_contrib`: age-specific contribution of mortality to CDR difference**
+1. **`Ci_contrib`: age-specific contribution of age-structure to CDR difference**
+
+```{r}
+
+```
+
+**Points available: 0.5, including:**
+
+* **0.25 for getting steps mostly right**
+* **0.25 for numerically accurate results**
+
+### Mortality rate shedule and age composition contributions to the CDR difference between males and females during WWII
+
+**Calculate the mortality rate schedule and age composition contributions to the CDR difference between males and females during WWII. Output the result in a table below with similar columns names as the previous section. Which column names your table will contain I'll leave you to figure out based on your knowledge of how to solve this problem.**
+
+```{r}
+
+```
+
+**Points available: 0.5, including:**
+
+* **0.25 for getting steps mostly right**
+* **0.25 for numerically accurate results**
+
+### Interpret the WWII results in comparison to WWI
+
+**In a brief paragraph below, interpret the results of your WWII analysis in comparison to the CDR difference decomposition you did for WWI. You may choose to augment your answer with additional graphs and tables, if you like. But it's not necessary.**
+
+**Response below:**
+
+
+
+**Points available: 0.5, including:**
+
+* **0.25 for well-reasoned response in light of results you got**
+* **0.25 for factually accurate response based on correct figures**
+
+**Total points available for this question set: 5**
+
+# Period life tables and stationary populations by national income level
+
+## Data collection {.unnumbered}
+
+```{r}
+mx_ci_by_income <- readRDS("data/mx_ci_by_income.rds")
+```
+
+## About the data {.unnumbered}
+
+**For this section, we'll use the age-specific mortality rate schedule and population structure of high-income and low-income countries, respectively, for the period between 2015 and 2020. The data comes from World Population Prospects 2019 reported by the United Nations Population Division. The income-level designations are based on World Bank income groups.**
+
+**The original data sources are linked below:**
+
+* **World Population Prospects mortality data:**
+  
+  https://population.un.org/wpp/Download/Standard/Mortality/
+  
+* **World Population Prospects population size data:**
+
+  https://population.un.org/wpp/Download/Standard/Population/
+
+**The data has one row per income level and age group (with the same age groups represented for each income level), and three columns:**
+
+1. **`income_level %in% c("Low-income countries", "High-income countries)`: The World Bank income level for which the life table was calculated**
+1. **`x`: The exact age at the beginning of the age interval**
+1. **`mx`: The age-specific mortality rate for age interval [`x`, `x` + $n$), where $n$ is the length of the age interval**
+1. **`cx`: The average proportion of population between ages [`x`, `x` + $n$) over the five-year period**
+
+## Build a period life table for each income level
+
+**Build a period life table for each income level. For simplicity, assuming a constant force of mortality for all age groups, even the very young ages, but excluding the open age interval.**
+
+### Life table for high-income countries
+
+**Display the life table below:**
+
+```{r}
+
+```
+
+**Points available: 1, including:**
+
+* **0.5 for getting steps mostly right**
+* **0.5 for numerically accurate results**
+
+### Life table for low-income countries
+
+**Display the life table below:**
+
+```{r}
+
+```
+
+**Points available: 1, including:**
+
+* **0.5 for getting steps mostly right**
+* **0.5 for numerically accurate results**
+
+## ${}_{x}p_0$ by income level
+
+**Compute ${}_{x}p_0$ for each age group $x$ and for each life table. Display the results in a table below with the following structure:**
+
+1. **`x`: exact age at the beginning of the interval**
+1. **`xp0_high`: ${}_{x}p_0$ for high-income countries**
+1. **`xp0_low`: ${}_{x}p_0$ for low-income countries**
+
+```{r}
+
+```
+
+**Points available: 1, including:**
+
+* **0.5 for getting steps mostly right**
+* **0.5 for numerically accurate results**
+
+## Actual vs. predicted age structure
+
+**Compute the age structure that represents the stationary population described by these two life table. Display the results below in a table with the following structure.**
+
+1. **`x`: exact age at the beginning of the interval**
+1. **`cx_actual`: actual proportion in age group**
+1. **`cx_stationary`: proportion in age group under stationary population assumptions**
+
+```{r}
+
+```
+
+**Points available: 1, including:**
+
+* **0.5 for getting steps mostly right**
+* **0.5 for numerically accurate results**
+
+## Crude birth rates (CBRs)
+
+**Compute and compare the CBRs of the stationary populations implied by these life tables, showing your work in $\LaTeX$ and in code**
+
+```{r}
+
+```
+
+**Response below:**
+
+
+
+**Points available: 0.5, including:**
+
+* **0.25 for getting the steps mostly right**
+* **0.25 for numerically accurate answers**
+
+## Constant working-aged population
+
+**Compute and compare the number individuals of working age [15,65) alive at any time by income level, showing your work in $\LaTeX$ as well as code.**
+
+**Response below:**
+
+
+
+**Points available: 0.5, including:**
+
+* **0.25 for getting the steps mostly right**
+* **0.25 for numerically accurate answers**
+
+**Total points available for this question set: 5**
+
+**Total points available for mid-term: 15**
