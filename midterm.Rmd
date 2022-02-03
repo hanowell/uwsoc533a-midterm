@@ -30,7 +30,7 @@ lung_surv <- readRDS(url("https://github.com/hanowell/uwsoc533a-midterm/blob/mai
 
 **You've just loaded data on lung cancer patient survival, which I modified from the `survival::lung` data set. Each observation represents an individual person who was observed until either the study was concluded, or they died. The data has the following structure:**
 
-1. **`person_months`: the exact time in months that a person was observed**
+1. **`person_months`: the exact time in months that a person was observed to the nearest day (assuming a 30.4375-day month)**
 1. **`status %in% c("censored", "dead")`: indicates whether the observation of this person concluded in their death, or with censoring (i.e., the end of the study)**
 1. **`sex %in% c("female", "male")`: the sex of the person observed**
 
@@ -124,7 +124,7 @@ fratnp_ww_asmr <- readRDS(url("https://github.com/hanowell/uwsoc533a-midterm/blo
 
 ## Calculate the crude death rate (CDR) in two different ways
 
-**Demonstrate two ways to use this data to calculate the CDR by period and sex. Do so using both equations (written in $\LaTeX$; you need demonstrate how it would be done for one period-sex pair) and code (code should do the calculations for all period-sex pairs):**
+**Demonstrate two ways to use this data to calculate the CDR by period and sex. Do so using both equations (written in $\LaTeX$; you only need demonstrate how it would be done for one period-sex pair) and code (code should do the calculations for all period-sex pairs):**
 
 ### Equations
 
@@ -170,7 +170,7 @@ fratnp_ww_asmr <- readRDS(url("https://github.com/hanowell/uwsoc533a-midterm/blo
 
 1. **`Age`: same definition as in the original data set**
 1. **`Mx_contrib`: age-specific contribution of mortality to CDR difference**
-1. **`Ci_contrib`: age-specific contribution of age-structure to CDR difference**
+1. **`Cx_contrib`: age-specific contribution of age-structure to CDR difference**
 
 ```{r}
 
@@ -215,7 +215,7 @@ fratnp_ww_asmr <- readRDS(url("https://github.com/hanowell/uwsoc533a-midterm/blo
 
 1. **`Age`: same definition as in the original data set**
 1. **`Mx_contrib`: age-specific contribution of mortality to CDR difference**
-1. **`Ci_contrib`: age-specific contribution of age-structure to CDR difference**
+1. **`Cx_contrib`: age-specific contribution of age-structure to CDR difference**
 
 ```{r}
 

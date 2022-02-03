@@ -265,7 +265,7 @@ pacman::p_load(dplyr, ggplot2, knitr, kableExtra, readr)</code></pre>
 <h2 class="unnumbered">About the data</h2>
 <p><strong>You’ve just loaded data on lung cancer patient survival, which I modified from the <code>survival::lung</code> data set. Each observation represents an individual person who was observed until either the study was concluded, or they died. The data has the following structure:</strong></p>
 <ol style="list-style-type: decimal">
-<li><strong><code>person_months</code>: the exact time in months that a person was observed</strong></li>
+<li><strong><code>person_months</code>: the exact time in months that a person was observed to the nearest day (assuming a 30.4375-day month)</strong></li>
 <li><strong><code>status %in% c(&quot;censored&quot;, &quot;dead&quot;)</code>: indicates whether the observation of this person concluded in their death, or with censoring (i.e., the end of the study)</strong></li>
 <li><strong><code>sex %in% c(&quot;female&quot;, &quot;male&quot;)</code>: the sex of the person observed</strong></li>
 </ol>
@@ -342,7 +342,7 @@ pacman::p_load(dplyr, ggplot2, knitr, kableExtra, readr)</code></pre>
 </div>
 <div id="calculate-the-crude-death-rate-cdr-in-two-different-ways" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Calculate the crude death rate (CDR) in two different ways</h2>
-<p><strong>Demonstrate two ways to use this data to calculate the CDR by period and sex. Do so using both equations (written in <span class="math inline">\(\LaTeX\)</span>; you need demonstrate how it would be done for one period-sex pair) and code (code should do the calculations for all period-sex pairs):</strong></p>
+<p><strong>Demonstrate two ways to use this data to calculate the CDR by period and sex. Do so using both equations (written in <span class="math inline">\(\LaTeX\)</span>; you only need demonstrate how it would be done for one period-sex pair) and code (code should do the calculations for all period-sex pairs):</strong></p>
 <div id="equations" class="section level3" number="2.1.1">
 <h3><span class="header-section-number">2.1.1</span> Equations</h3>
 <div id="method-1" class="section level4" number="2.1.1.1">
@@ -380,7 +380,7 @@ pacman::p_load(dplyr, ggplot2, knitr, kableExtra, readr)</code></pre>
 <ol style="list-style-type: decimal">
 <li><strong><code>Age</code>: same definition as in the original data set</strong></li>
 <li><strong><code>Mx_contrib</code>: age-specific contribution of mortality to CDR difference</strong></li>
-<li><strong><code>Ci_contrib</code>: age-specific contribution of age-structure to CDR difference</strong></li>
+<li><strong><code>Cx_contrib</code>: age-specific contribution of age-structure to CDR difference</strong></li>
 </ol>
 <p><strong>Points available: 0.5, including:</strong></p>
 <ul>
@@ -416,7 +416,7 @@ pacman::p_load(dplyr, ggplot2, knitr, kableExtra, readr)</code></pre>
 <ol style="list-style-type: decimal">
 <li><strong><code>Age</code>: same definition as in the original data set</strong></li>
 <li><strong><code>Mx_contrib</code>: age-specific contribution of mortality to CDR difference</strong></li>
-<li><strong><code>Ci_contrib</code>: age-specific contribution of age-structure to CDR difference</strong></li>
+<li><strong><code>Cx_contrib</code>: age-specific contribution of age-structure to CDR difference</strong></li>
 </ol>
 <p><strong>Points available: 0.5, including:</strong></p>
 <ul>
