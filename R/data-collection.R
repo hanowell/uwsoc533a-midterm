@@ -38,10 +38,13 @@ fratnp_ww_deaths <- read_hmd_fratnp_ww("Deaths_5x1")
 fratnp_ww_exposures <- read_hmd_fratnp_ww("Exposures_5x1")
 fratnp_ww_asmr <- fratnp_ww_deaths %>%
   dplyr::left_join(fratnp_ww_exposures) %>%
-  dplyr::mutate(World_War = dplyr::case_when(
-    Year %in% c(1914:1918) ~ "WWI",
-    Year %in% c(1939:1945) ~ "WWII"
-  )) %>%
+  dplyr::mutate(
+    World_War = dplyr::case_when(
+      Year %in% c(1914:1918) ~ "WWI",
+      Year %in% c(1939:1945) ~ "WWII"
+    ),
+    Age = if_else(Age > 95L, 95L, Age)
+  ) %>%
   dplyr::group_by(World_War, Sex, Age) %>%
   dplyr::summarize_at(vars(Deaths_5x1, Exposures_5x1), sum) %>%
   dplyr::ungroup() %>%

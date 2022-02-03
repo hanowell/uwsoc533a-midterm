@@ -15,7 +15,7 @@ output:
 ## Data collection {.unnumbered}
 
 ```{r}
-lung_surv <- readRDS("data/lung_surv.rds")
+lung_surv <- readRDS(url("https://github.com/hanowell/uwsoc533a-midterm/blob/main/data/lung_surv.rds?raw=true"))
 ```
 
 ## About the data {.unnumbered}
@@ -100,7 +100,7 @@ lung_surv <- readRDS("data/lung_surv.rds")
 ## Data collection {.unnumbered}
 
 ```{r}
-fratnp_ww_asmr <- readRDS("data/fratnp_ww_asmr.rds")
+fratnp_ww_asmr <- readRDS(url("https://github.com/hanowell/uwsoc533a-midterm/blob/main/data/fratnp_ww_asmr.rds?raw=true"))
 ```
 
 ## About the data {.unnumbered}
