@@ -248,6 +248,13 @@ div.tocify {
 </div>
 
 
+<div id="setup" class="section level1 unnumbered">
+<h1 class="unnumbered">Setup</h1>
+<pre class="r"><code>if (!require(&quot;pacman&quot;)) install.packages(&quot;pacman&quot;)</code></pre>
+<pre><code>## Loading required package: pacman</code></pre>
+<pre class="r"><code># p_load function loads packages if installed, or install then loads otherwise
+pacman::p_load(dplyr, ggplot2, knitr, kableExtra, readr)</code></pre>
+</div>
 <div id="age-specific-lung-cancer-patient-death-rates-and-probabilities" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> “Age-specific” lung cancer patient death rates and probabilities</h1>
 <div id="data-collection" class="section level2 unnumbered">
@@ -260,7 +267,7 @@ div.tocify {
 <ol style="list-style-type: decimal">
 <li><strong><code>person_months</code>: the exact time in months that a person was observed</strong></li>
 <li><strong><code>status %in% c(&quot;censored&quot;, &quot;dead&quot;)</code>: indicates whether the observation of this person concluded in their death, or with censoring (i.e., the end of the study)</strong></li>
-<li><strong><code>sex</code>: the sex of the person observed</strong></li>
+<li><strong><code>sex %in% c(&quot;female&quot;, &quot;male&quot;)</code>: the sex of the person observed</strong></li>
 </ol>
 </div>
 <div id="what-do-i-mean-by-age-specific-in-this-context" class="section level2" number="1.1">
@@ -443,7 +450,7 @@ div.tocify {
 <h1><span class="header-section-number">3</span> Period life tables and stationary populations by national income level</h1>
 <div id="data-collection-2" class="section level2 unnumbered">
 <h2 class="unnumbered">Data collection</h2>
-<pre class="r"><code>mx_ci_by_income &lt;- readRDS(&quot;data/mx_ci_by_income.rds&quot;)</code></pre>
+<pre class="r"><code>mx_ci_by_income &lt;- readRDS(url(&quot;https://github.com/hanowell/uwsoc533a-midterm/blob/main/data/mx_ci_by_income.rds?raw=true&quot;))</code></pre>
 </div>
 <div id="about-the-data-2" class="section level2 unnumbered">
 <h2 class="unnumbered">About the data</h2>

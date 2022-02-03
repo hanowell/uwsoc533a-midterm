@@ -10,6 +10,14 @@ output:
     toc_depth: 4
 ---
 
+# Setup {.unnumbered}
+
+```{r}
+if (!require("pacman")) install.packages("pacman")
+# p_load function loads packages if installed, or install then loads otherwise
+pacman::p_load(dplyr, ggplot2, knitr, kableExtra, readr)
+```
+
 # "Age-specific" lung cancer patient death rates and probabilities
 
 ## Data collection {.unnumbered}
@@ -24,7 +32,7 @@ lung_surv <- readRDS(url("https://github.com/hanowell/uwsoc533a-midterm/blob/mai
 
 1. **`person_months`: the exact time in months that a person was observed**
 1. **`status %in% c("censored", "dead")`: indicates whether the observation of this person concluded in their death, or with censoring (i.e., the end of the study)**
-1. **`sex`: the sex of the person observed**
+1. **`sex %in% c("female", "male")`: the sex of the person observed**
 
 ##  What do I mean by "age-specific" in this context?
 
@@ -251,7 +259,7 @@ fratnp_ww_asmr <- readRDS(url("https://github.com/hanowell/uwsoc533a-midterm/blo
 ## Data collection {.unnumbered}
 
 ```{r}
-mx_ci_by_income <- readRDS("data/mx_ci_by_income.rds")
+mx_ci_by_income <- readRDS(url("https://github.com/hanowell/uwsoc533a-midterm/blob/main/data/mx_ci_by_income.rds?raw=true"))
 ```
 
 ## About the data {.unnumbered}
