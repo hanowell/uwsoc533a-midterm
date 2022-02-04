@@ -113,7 +113,7 @@ fratnp_ww_asmr <- readRDS(url("https://github.com/hanowell/uwsoc533a-midterm/blo
 
 ## About the data {.unnumbered}
 
-**You've just loaded age-specific mortality rates (ASMRs) by gender and 5-year age groups for France during World War I (1914-1918) and World War II (1939-1945), respectively. The data has the following structure:**
+**You've just loaded age-specific mortality rates (ASMRs) by gender and 5-year age groups (plus infancy) for France during World War I (1914-1918) and World War II (1939-1945), respectively. The data has the following structure:**
 
 1. **`World_War %in% c("WWI", "WWII")`: which world war period the ASMR schedule applies to**
 1. **`Sex %in% c("Female", "Male")`: which sex the ASMR schedule applies to**
@@ -183,7 +183,7 @@ fratnp_ww_asmr <- readRDS(url("https://github.com/hanowell/uwsoc533a-midterm/blo
 
 ### Mortality rate shedule and age composition contributions to the CDR difference between males and females during WWI
 
-**Calculate the mortality rate schedule and age composition contributions to the CDR difference between males and females during WWI. Output the result in a table below with similar columns names as the previous section. Which column names your table will contain I'll leave you to figure out based on your knowledge of how to solve this problem.**
+**Calculate the mortality rate schedule and age composition contributions to the CDR difference between males and females during WWI. Output the result in a table below with similar column names as the previous section. Which column names your table will contain I'll leave you to figure out based on your knowledge of how to solve this problem.**
 
 ```{r}
 
@@ -196,7 +196,7 @@ fratnp_ww_asmr <- readRDS(url("https://github.com/hanowell/uwsoc533a-midterm/blo
 
 ### Interpret the WWI results
 
-**In a paragraph below, interpret your findings about the difference between male and female CDR during WWI in France, both in terms of its age-specific and total components. You may choose to augment your answer with additional graphs and tables, if you like. But it's not necessary.**
+**In a paragraph below, interpret your findings about the difference between male and female CDR during WWI in France, in terms of its age-specific and total components. You may choose to augment your answer with additional graphs and tables, if you like. But it's not necessary.**
 
 **Response below:**
 
@@ -228,7 +228,7 @@ fratnp_ww_asmr <- readRDS(url("https://github.com/hanowell/uwsoc533a-midterm/blo
 
 ### Mortality rate shedule and age composition contributions to the CDR difference between males and females during WWII
 
-**Calculate the mortality rate schedule and age composition contributions to the CDR difference between males and females during WWII. Output the result in a table below with similar columns names as the previous section. Which column names your table will contain I'll leave you to figure out based on your knowledge of how to solve this problem.**
+**Calculate the mortality rate schedule and age composition contributions to the CDR difference between males and females during WWII. Output the result in a table below with similar column names as the previous section. Which column names your table will contain I'll leave you to figure out based on your knowledge of how to solve this problem.**
 
 ```{r}
 
@@ -285,7 +285,7 @@ mx_ci_by_income <- readRDS(url("https://github.com/hanowell/uwsoc533a-midterm/bl
 
 ## Build a period life table for each income level
 
-**Build a period life table for each income level. For simplicity, assuming a constant force of mortality for all age groups, even the very young ages, but excluding the open age interval.**
+**Build a period life table for each income level. For simplicity, assume a constant force of mortality for all age groups, even the very young ages, but excluding the open age interval.**
 
 ### Life table for high-income countries
 
